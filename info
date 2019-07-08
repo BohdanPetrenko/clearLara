@@ -1,0 +1,12 @@
+
+API-TOKEN: zXdMCXGNau2Qoei2I9fDB548
+
+Simple example
+
+curl -D- \
+   -u petrenko.bohdan@pdffiller.team:zXdMCXGNau2Qoei2I9fDB548 \
+   -X GET \
+   -H "Content-Type: application/json" \
+   https://your-domain.atlassian.net/rest/api/2/issue/createmeta
+
+curl -v https://testslate.atlassian.net/rest/api/3/dashboard --user petrenko.bohdan@pdffiller.team:zXdMCXGNau2Qoei2I9fDB548
