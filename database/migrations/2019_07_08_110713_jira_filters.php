@@ -13,7 +13,7 @@ class JiraFilters extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('jira_filters', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('filter_id');
             $table->text('query');
@@ -29,6 +29,6 @@ class JiraFilters extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('jira_filters');
     }
 }
