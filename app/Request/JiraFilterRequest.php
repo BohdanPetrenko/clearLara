@@ -19,9 +19,9 @@ class JiraFilterRequest extends FormRequest
     public function rules()
     {
         return [
-//            'filter_id' => 'require|integer',
-//            'schedule' => 'require',
-//            'max_total_items' => 'require|integer'
+            'filter_id' => 'required|integer',
+            'schedule' => 'required',
+            'max_total_items' => 'required|integer'
         ];
     }
 }
