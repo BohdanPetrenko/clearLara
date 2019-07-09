@@ -11,12 +11,12 @@ class JiraProvider
     {
 
         $client = new Client(['base_uri'
-        => 'https://' . getenv('JIRA_PROJECT_NAME') . '.atlassian.net/rest/api/3/']);
+        => 'https://' . env('JIRA_PROJECT_NAME') . '.atlassian.net/rest/api/3/']);
         $response = $client->request(
             'GET',
             'filter/search', [
             'headers' => [
-                'Authorization' => "Basic " . base64_encode(getenv('USER_JIRA_EMAIL') . ':' . getenv('JIRA_API_TOKEN'))
+                'Authorization' => "Basic " . base64_encode(env('JIRA_USER_EMAIL') . ':' . env('JIRA_API_TOKEN'))
             ]]);
 
         $filters = \GuzzleHttp\json_decode($response->getBody()->getContents(), true);

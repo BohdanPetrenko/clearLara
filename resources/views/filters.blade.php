@@ -15,7 +15,7 @@
 
 <form method="POST" action="{{ route('jirafilters.store') }}">
     @csrf
-    <select name="filterID">
+    <select name="filter_id">
         @foreach ($jiraFilters as $filter)
             <option value="{{ $filter['id'] }}">{{ $filter['name'] }}</option>
         @endforeach

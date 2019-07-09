@@ -19,12 +19,7 @@ class SearchJiraFiltersController extends Controller
 
     public function store(Request $request)
     {
-        $data = [
-            'filter_id' => $request->get('filterID'),
-            'schedule' => $request->get('schedule'),
-        ];
-
-        $base = new JiraFilter($data);
+        $base = new JiraFilter($request->all());
 
         $base->save();
     }
