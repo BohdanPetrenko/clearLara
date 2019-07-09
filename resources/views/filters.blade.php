@@ -22,8 +22,13 @@
     </select>
 
     <div class="form-group mx-sm-3 mb-2">
-        <label for="inputPassword2" class="sr-only">Cron format</label>
-        <input type="Cron format" name="schedule" class="form-control" id="inputPassword2" placeholder="Cron format">
+        <label class="sr-only">Cron format</label>
+        <input type="Cron format" name="schedule" class="form-control" placeholder="Cron format">
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+        <label for="max_total_items" class="sr-only"></label>
+        <input type="max_total_items" name="max_total_items" class="form-control" id="inputPassword2"
+               placeholder="Send an alert when the number of tasks exceeds the specified limit">
     </div>
     <button type="submit" class="btn btn-primary mb-2">Confirm</button>
 </form>

@@ -18,7 +18,7 @@ class JiraFilters extends Migration
             $table->unsignedInteger('filter_id');
             $table->string('schedule');
             $table->text('query')->nullable();
-            $table->unsignedInteger('max_total_items')->nullable();
+            $table->unsignedInteger('max_total_items');
             $table->timestamps();
         });
     }

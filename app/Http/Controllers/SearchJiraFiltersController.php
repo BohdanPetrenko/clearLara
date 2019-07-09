@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\JiraFilter;
 use App\Request\JiraFilterRequest;
 use App\Services\JiraProvider;
-use Illuminate\Http\Request;
 
 class SearchJiraFiltersController extends Controller
 {
