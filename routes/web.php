@@ -15,4 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/temperature', 'TemperatureController@show');
+
+//Route::get('/jirafilter', 'SearchJiraFiltersController@show');
+Route::resource('/jirafilters', 'SearchJiraFiltersController');
