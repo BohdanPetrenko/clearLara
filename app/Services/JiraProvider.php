@@ -10,8 +10,8 @@ class JiraProvider
     public function listFilters()
     {
 
-        $client = new Client(['base_uri'
-        => 'https://' . env('JIRA_PROJECT_NAME') . '.atlassian.net/rest/api/3/']);
+        $client = new Client([
+            'base_uri' => 'https://' . env('JIRA_PROJECT_NAME') . '.atlassian.net/rest/api/3/']);
         $response = $client->request(
             'GET',
             'filter/search', [
