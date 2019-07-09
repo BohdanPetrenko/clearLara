@@ -2,9 +2,9 @@
 
 namespace App\Request;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Http\FormRequest;
 
-class JiraFilterRequest extends Model
+class JiraFilterRequest extends FormRequest
 {
     public function authorize()
     {
@@ -18,8 +18,6 @@ class JiraFilterRequest extends Model
      */
     public function rules()
     {
-        return [
-            'title' => 'required|min:5|max:200',
-        ];
+        return [];
     }
 }
