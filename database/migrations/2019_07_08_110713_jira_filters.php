@@ -16,8 +16,9 @@ class JiraFilters extends Migration
         Schema::create('jira_filters', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('filter_id');
-            $table->text('query');
-            $table->unsignedInteger('max_total_items');
+            $table->string('schedule');
+            $table->text('query')->nullable();
+            $table->unsignedInteger('max_total_items')->nullable();
             $table->timestamps();
         });
     }

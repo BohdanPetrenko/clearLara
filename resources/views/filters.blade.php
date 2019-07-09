@@ -1,8 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    @foreach($filters as $filter)
-        <tr>
-           {{ $filter['name'] }}
-            {{ $filter['id'] }}
-            <br>
-        </tr>
-    @endforeach
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title></title>
+</head>
+<body>
+
+<form method="POST" action="{{ route('jirafilters.store') }}">
+    @csrf
+    <select name="filter_id">
+        @foreach ($jiraFilters as $filter)
+            <option value="{{ $filter['id'] }}">{{ $filter['name'] }}</option>
+        @endforeach
+    </select>
+
+    <div class="form-group mx-sm-3 mb-2">
+        <label for="inputPassword2" class="sr-only">Cron format</label>
+        <input type="Cron format" name="schedule" class="form-control" id="inputPassword2" placeholder="Cron format">
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">Confirm</button>
+</form>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
