@@ -12,7 +12,7 @@ class SearchJiraFiltersController extends Controller
 
     public function index()
     {
-        $jiraFilters = (new JiraProvider())->listFilters();
+        $jiraFilters = (new JiraProvider())->searchForFilters();
 
         return view('filters', compact('jiraFilters'));
     }

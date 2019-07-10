@@ -22,7 +22,7 @@ class JiraFilterWatcher
         $response = $this->getRequest('search?' . $getQueryFromFilter);
         $getFilterInfo = \GuzzleHttp\json_decode($response->getBody()->getContents(), true);
 
-        return $getFilterInfo['total'];
+        return $getFilterInfo;
     }
 
     public function getRequest($uri, $method = 'GET')
