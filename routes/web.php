@@ -18,3 +18,4 @@ Route::get('/', function () {
 
 //Route::get('/jirafilter', 'SearchJiraFiltersController@show');
 Route::resource('/jirafilters', 'SearchJiraFiltersController');
+Route::get('/slacktest', 'SlackMessageController@index');
