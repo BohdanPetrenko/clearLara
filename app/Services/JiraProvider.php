@@ -33,11 +33,6 @@ class JiraProvider
         return $filters['values'];
     }
 
-//    public function getFilterAttribute(int $id, string $attribute)
-//    {
-//        return $this->getFilter($id)[$attribute] ?? abort(404);
-//    }
-
     public function getTotalTasksByFilter(int $filterId)
     {
         $response = $this->getFilterById($filterId);
