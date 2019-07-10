@@ -15,6 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-//Route::get('/jirafilter', 'SearchJiraFiltersController@show');
 Route::resource('/jirafilters', 'SearchJiraFiltersController');
