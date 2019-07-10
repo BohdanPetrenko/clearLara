@@ -6,6 +6,6 @@ class JiraFilterWatcher
 {
     public function run(int $filterId)
     {
-        return (new JiraProvider())->getTotalTasksByFilter($filterId) ?? abort(404);
+        return (new JiraProvider())->getTotalTasksByFilter($filterId);
     }
 }
