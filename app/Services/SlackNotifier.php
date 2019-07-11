@@ -29,6 +29,7 @@ class SlackNotifier
             'body' => $payload
         ]);
     }
+    
     private function getNameAndTotalTasks(JiraFilter $jiraFilter)
     {
         $filter = new JiraProvider();
