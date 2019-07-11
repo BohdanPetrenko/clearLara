@@ -5,7 +5,6 @@ namespace App\Services;
 use App\JiraFilter;
 use GuzzleHttp\Client;
 
-
 class SlackNotifier
 {
     public function send(JiraFilter $jiraFilter)
