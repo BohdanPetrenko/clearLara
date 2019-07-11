@@ -2,10 +2,18 @@
 
 namespace App\Services;
 
+use App\JiraFilter;
+
 class JiraFilterWatcher
 {
-    public function run(int $filterId)
+    public function shouldNotifySlack(JiraFilter $db)
     {
-        return (new JiraProvider())->getTotalTasksByFilter($filterId);
+        $filterId = $db->getAttributes()['filter_id'];
+        $maxTotalTasks = $db->getAttributes()['max_total_tasks'];
+
+        $totalTasksInJiraByFilterId =
+            (new JiraProvider)->getTotalTasksByFilter($filterId);
+
+        return $totalTasksInJiraByFilterId >= $maxTotalTasks ? true : false;
     }
 }
