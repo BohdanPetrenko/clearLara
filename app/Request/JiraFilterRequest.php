@@ -20,7 +20,7 @@ class JiraFilterRequest extends FormRequest
     {
         return [
             'filter_id' => 'unique:jira_filters|required|integer',
-            'schedule' => 'required',
+            'schedule' => 'required|cron_expression',
             'max_total_items' => 'required|integer',
             'slack_webhook' => 'required|string|url',
         ];

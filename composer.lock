@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c37202479ff1aac382fcc36855831db0",
+    "content-hash": "254158b5471dd51ad0d567ee1216ba10",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -654,16 +654,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.8.27",
+            "version": "v5.8.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "f1dccffb96f614895393e27e4667105a05407af5"
+                "reference": "341fb54bea9693cada2a5b8d398621a57f82862d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/f1dccffb96f614895393e27e4667105a05407af5",
-                "reference": "f1dccffb96f614895393e27e4667105a05407af5",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/341fb54bea9693cada2a5b8d398621a57f82862d",
+                "reference": "341fb54bea9693cada2a5b8d398621a57f82862d",
                 "shasum": ""
             },
             "require": {
@@ -797,7 +797,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-07-02T13:43:47+00:00"
+            "time": "2019-07-09T14:00:02+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -1025,6 +1025,50 @@
             "time": "2018-11-05T09:00:11+00:00"
         },
         {
+            "name": "mtdowling/cron-expression",
+            "version": "v1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mtdowling/cron-expression.git",
+                "reference": "9504fa9ea681b586028adaaa0877db4aecf32bad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mtdowling/cron-expression/zipball/9504fa9ea681b586028adaaa0877db4aecf32bad",
+                "reference": "9504fa9ea681b586028adaaa0877db4aecf32bad",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0|~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Cron\\": "src/Cron/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "CRON for PHP: Calculate the next or previous run date and determine if a CRON expression is due",
+            "keywords": [
+                "cron",
+                "schedule"
+            ],
+            "time": "2017-01-23T04:29:33+00:00"
+        },
+        {
             "name": "nesbot/carbon",
             "version": "2.20.0",
             "source": {
@@ -1137,16 +1181,16 @@
         },
         {
             "name": "opis/closure",
-            "version": "3.3.0",
+            "version": "3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opis/closure.git",
-                "reference": "f846725591203098246276b2e7b9e8b7814c4965"
+                "reference": "92927e26d7fc3f271efe1f55bdbb073fbb2f0722"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opis/closure/zipball/f846725591203098246276b2e7b9e8b7814c4965",
-                "reference": "f846725591203098246276b2e7b9e8b7814c4965",
+                "url": "https://api.github.com/repos/opis/closure/zipball/92927e26d7fc3f271efe1f55bdbb073fbb2f0722",
+                "reference": "92927e26d7fc3f271efe1f55bdbb073fbb2f0722",
                 "shasum": ""
             },
             "require": {
@@ -1194,7 +1238,7 @@
                 "serialization",
                 "serialize"
             ],
-            "time": "2019-05-31T20:04:32+00:00"
+            "time": "2019-07-09T21:58:11+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -5918,7 +5962,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.1.3"
+        "php": "^7.1.3",
+        "ext-json": "*"
     },
     "platform-dev": []
 }

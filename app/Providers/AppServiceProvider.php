@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use Cron\CronExpression;
 use Illuminate\Support\ServiceProvider;
+use Validator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Validator::extend('cron_expression', function ($attribute, $value, $parameters, $validator) {
+            return CronExpression::isValidExpression($value);
+        });
     }
 }
