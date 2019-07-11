@@ -5,9 +5,15 @@ namespace App\Services;
 use App\JiraFilter;
 use GuzzleHttp\Client;
 
-
 class SlackNotifier
 {
+    private $jiraProvider;
+
+    public function __construct()
+    {
+        $this->jiraProvider = new JiraProvider();
+    }
+
     public function send(JiraFilter $jiraFilter)
     {
         $client = new Client();
@@ -29,19 +35,15 @@ class SlackNotifier
 
     private function getName(JiraFilter $jiraFilter)
     {
-        $jiraProvider = new JiraProvider();
-        $encodedFilterInfo = $jiraProvider->getFilterById($jiraFilter->filter_id)->getBody()->getContents();
-        $decodeFilterInfo = (\GuzzleHttp\json_decode($encodedFilterInfo));
-        $filterName = $decodeFilterInfo->name;
+        $encodedFilterInfo = $this->jiraProvider->getFilterById($jiraFilter->filter_id)->getBody()->getContents();
+        $decodedFilterInfo = (\GuzzleHttp\json_decode($encodedFilterInfo));
 
-        return $filterName;
+        return $decodedFilterInfo->name;
     }
 
     private function getTotalTasks(JiraFilter $jiraFilter)
     {
-        $filter = new JiraProvider();
-        $totalTask = $filter->getTotalTasksByFilter($jiraFilter->filter_id);
+        return $this->jiraProvider->getTotalTasksByFilter($jiraFilter->filter_id);
 
-        return $totalTask;
     }
 }
