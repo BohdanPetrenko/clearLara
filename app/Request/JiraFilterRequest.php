@@ -21,7 +21,8 @@ class JiraFilterRequest extends FormRequest
         return [
             'filter_id' => 'unique:jira_filters|required|integer',
             'schedule' => 'required',
-            'max_total_items' => 'required|integer'
+            'max_total_items' => 'required|integer',
+            'slack_webhook' => 'required|string',
         ];
     }
 }

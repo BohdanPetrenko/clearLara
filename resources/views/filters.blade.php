@@ -24,11 +24,16 @@
     <div class="form-group mx-sm-3 mb-2">
         <input name="schedule" placeholder="Cron format">
     </div>
+
     <div class="form-group mx-sm-3 mb-2">
-        <label for="max_total_items" class="sr-only"></label>
         <input name="max_total_items"
                placeholder="Send an alert when the number of tasks exceeds the specified limit">
     </div>
+
+    <div class="form-group mx-sm-3 mb-2">
+        <input name="slack_webhook" placeholder="type webhook">
+    </div>
+
     <button type="submit" class="btn btn-primary mb-2">Confirm</button>
 </form>
 
