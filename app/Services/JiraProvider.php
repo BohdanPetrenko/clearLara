@@ -33,7 +33,7 @@ class JiraProvider
         return $filters['values'];
     }
 
-    public function getTotalTasksByFilter(int $filterId)
+    public function totalTasks(int $filterId)
     {
         $response = $this->getFilterById($filterId);
 

@@ -6,13 +6,13 @@ use App\JiraFilter;
 
 class JiraFilterWatcher
 {
-    public function shouldNotifySlack(JiraFilter $db)
+    public function shouldNotifySlack(JiraFilter $jiraFilter)
     {
-        $filterId = $db->getAttributes()['filter_id'];
-        $maxTotalTasks = $db->getAttributes()['max_total_tasks'];
+        $filterId = $jiraFilter->filter_id;
+        $maxTotalTasks = $jiraFilter->max_total_tasks;
 
         $totalTasksInJiraByFilterId =
-            (new JiraProvider)->getTotalTasksByFilter($filterId);
+            (new JiraProvider)->totalTasks($filterId);
 
         return $totalTasksInJiraByFilterId >= $maxTotalTasks ? true : false;
     }
