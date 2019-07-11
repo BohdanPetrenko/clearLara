@@ -17,6 +17,7 @@ class JiraFilters extends Migration
             $table->bigIncrements('id');
             $table->unsignedInteger('filter_id')->unique();
             $table->string('schedule');
+            $table->string('slack_webhook');
             $table->text('query')->nullable();
             $table->unsignedInteger('max_total_items');
             $table->timestamps();
