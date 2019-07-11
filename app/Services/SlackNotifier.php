@@ -10,34 +10,38 @@ class SlackNotifier
 {
     public function send(JiraFilter $jiraFilter)
     {
-        $client = new Client ([
-            'base_uri' => 'https://hooks.slack.com'
-        ]);
+        $client = new Client();
 
-        $filterInfo = $this->getNameAndTotalTasks($jiraFilter);
-        $message = "Количество задач по фильтру `$filterInfo[name]` достигло `$filterInfo[totalTasks]` и превышает норму.";
+        $message = 'Количество задач по фильтру `' .
+            $this->getName($jiraFilter) . '` достигло `' .
+            $this->getTotalTasks($jiraFilter) . '` и превышает норму.';
         $payload = json_encode(
             [
                 'text' => $message,
-                'username' => 'JiraNotification',
+                'username' => 'JiraWatcher Bot',
                 'icon_emoji' => ':exclamation:'
             ]);
 
-        $workspaceUri = (parse_url($jiraFilter->slack_webhook))['path'];
-        $client->request(
-            'POST',
-            $workspaceUri, [
+        $client->request('POST', $jiraFilter->slack_webhook, [
             'body' => $payload
         ]);
     }
-    private function getNameAndTotalTasks(JiraFilter $jiraFilter)
+
+    private function getName(JiraFilter $jiraFilter)
+    {
+        $jiraProvider = new JiraProvider();
+        $encodedFilterInfo = $jiraProvider->getFilterById($jiraFilter->filter_id)->getBody()->getContents();
+        $decodeFilterInfo = (\GuzzleHttp\json_decode($encodedFilterInfo));
+        $filterName = $decodeFilterInfo->name;
+
+        return $filterName;
+    }
+
+    private function getTotalTasks(JiraFilter $jiraFilter)
     {
         $filter = new JiraProvider();
-        $encodedFilterName = $filter->getFilterById($jiraFilter->filter_id)->getBody()->getContents();
-        $decodeFilterName = (\GuzzleHttp\json_decode($encodedFilterName));
-        $filterName = $decodeFilterName->name;
         $totalTask = $filter->getTotalTasksByFilter($jiraFilter->filter_id);
 
-        return ['name' => $filterName, 'totalTasks' => $totalTask];
+        return $totalTask;
     }
 }
