@@ -19,6 +19,7 @@ class JiraFilters extends Migration
             $table->string('schedule');
             $table->string('slack_webhook');
             $table->unsignedInteger('max_total_items');
+            $table->timestamp('last_run');
             $table->timestamps();
         });
     }
