@@ -9,9 +9,9 @@ class SlackNotifier
 {
     private $jiraProvider;
 
-    public function __construct()
+    public function __construct(JiraProvider $jiraProvider)
     {
-        $this->jiraProvider = new JiraProvider();
+        $this->jiraProvider = $jiraProvider;
     }
 
     public function send(JiraFilter $jiraFilter)

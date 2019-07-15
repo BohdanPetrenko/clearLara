@@ -20,7 +20,6 @@ class SearchJiraFiltersController extends Controller
     public function store(JiraFilterRequest $request)
     {
         $base = new JiraFilter($request->all());
-
         $base->save();
     }
 }

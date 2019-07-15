@@ -11,8 +11,7 @@ class JiraFilterWatcher
         $filterId = $jiraFilter->filter_id;
         $maxTotalTasks = $jiraFilter->max_total_tasks;
 
-        $totalTasks =
-            (new JiraProvider)->getTotalTasksByFilter($filterId);
+        $totalTasks = (new JiraProvider)->getTotalTasksByFilter($filterId);
 
         return $totalTasks >= $maxTotalTasks ? true : false;
     }
