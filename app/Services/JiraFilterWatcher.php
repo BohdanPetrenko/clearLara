@@ -9,7 +9,7 @@ class JiraFilterWatcher
     public function shouldNotifySlack(JiraFilter $jiraFilter)
     {
         $filterId = $jiraFilter->filter_id;
-        $maxTotalTasks = $jiraFilter->max_total_tasks;
+        $maxTotalTasks = $jiraFilter->max_total_items;
 
         $totalTasks = (new JiraProvider)->getTotalTasksByFilter($filterId);
 
